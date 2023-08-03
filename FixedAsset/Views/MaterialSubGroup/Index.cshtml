@@ -1,0 +1,32 @@
+﻿@model List<TFAMtrlSubGrp>
+
+<div class="container">
+    <h2 class="text text-center ">Material Sub Group Detail</h2>
+    <a asp-controller="MaterialSubGroup" asp-action="Create" class="btn btn-primary float-end m-2"><i class="bi bi-plus-square"></i>Create New Sub Material Group</a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <th>Materail Sub Group Id</th>
+        <th>Materail Group Id</th>
+        <th> Sub Grp Short Desc</th>
+        <th>Sub Grp Desc</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            @foreach (var insideData in Model)
+            {
+                <tr>
+                    <td>@insideData.FAMtrlSubGrpId</td>
+                    <td>@insideData.FAMtrlGrpId</td>
+                    <td>@insideData.SubGrpShortDesc</td>
+                    <td>@insideData.SubGrpDesc</td>
+                    <td>
+                        <a asp-controller="MaterialSubGroup" asp-action="Edit" asp-route-famtrlSubGrpId="@insideData.FAMtrlSubGrpId" class="btn btn-primary">Edit</a>
+                        <a asp-controller="MaterialSubGroup" asp-action="Delete" asp-route-famtrlSubGrpId="@insideData.FAMtrlSubGrpId" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
